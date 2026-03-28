@@ -6,9 +6,16 @@ namespace PortalCampanas.Controllers
 {
     public class CampanasController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string categoria, string estado)
         {
             var campanas = CampanaService.ObtenerCampanas();
+
+            if (!string.IsNullOrEmpty(categoria))
+                campanas = campanas.Where(c => c.Categoria == categoria).ToList();
+
+            if (!string.IsNullOrEmpty(estado))
+                campanas = campanas.Where(c => c.Estado == estado).ToList();
+
             return View(campanas);
         }
         public IActionResult Detalle(int id)

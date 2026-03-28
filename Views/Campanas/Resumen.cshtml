@@ -1,0 +1,40 @@
+<h2 class="mt-4">Resumen de Campañas</h2>
+
+<div class="row mt-3">
+    <div class="col-md-3">
+        <div class="card p-3">
+            <h5>Total</h5>
+            <p>@ViewBag.Total</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3">
+            <h5>Vigentes</h5>
+            <p>@ViewBag.Vigentes</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3">
+            <h5>Próximas</h5>
+            <p>@ViewBag.Proximas</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card p-3">
+            <h5>Promedio Descuento</h5>
+            <p>@ViewBag.Promedio %</p>
+        </div>
+    </div>
+</div>
+
+<h4 class="mt-4">Campañas por Canal</h4>
+
+<ul>
+@foreach (var item in ViewBag.PorCanal)
+{
+    <li>@item.Canal: @item.Cantidad</li>
+}
+</ul>

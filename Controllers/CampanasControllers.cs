@@ -25,6 +25,28 @@ namespace PortalCampanas.Controllers
 
             return View(campana);
         }
+        public IActionResult Resumen()
+        {
+            var campanas = CampanaService.ObtenerCampanas();
+
+            var total = campanas.Count;
+            var vigentes = campanas.Count(c => c.Estado == "Vigente");
+            var proximas = campanas.Count(c => c.Estado == "Próxima");
+            var promedio = campanas.Average(c => c.DescuentoPct);
+
+            var porCanal = campanas
+                .GroupBy(c => c.Canal)
+                .Select(g => new { Canal = g.Key, Cantidad = g.Count() })
+                .ToList();
+
+            ViewBag.Total = total;
+            ViewBag.Vigentes = vigentes;
+            ViewBag.Proximas = proximas;
+            ViewBag.Promedio = promedio;
+            ViewBag.PorCanal = porCanal;
+
+            return View();
+        }
     }
     
 }

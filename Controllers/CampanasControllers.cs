@@ -29,7 +29,7 @@ namespace PortalCampanas.Controllers
         {
             var campanas = CampanaService.ObtenerCampanas();
 
-            var total = campanas.Count;
+            var total = campanas.Count(c => c.Id > 0);
             var vigentes = campanas.Count(c => c.Estado == "Vigente");
             var proximas = campanas.Count(c => c.Estado == "Próxima");
             var promedio = campanas.Average(c => c.DescuentoPct);

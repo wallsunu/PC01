@@ -1,0 +1,19 @@
+@model PortalCampanas.Models.Campana
+
+<div class="container mt-4">
+    <h2>@Model.Nombre</h2>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <p><strong>Categoría:</strong> @Model.Categoria</p>
+            <p><strong>Estado:</strong> @Model.Estado</p>
+            <p><strong>Canal:</strong> @Model.Canal</p>
+            <p><strong>Descuento:</strong> @Model.DescuentoPct %</p>
+            <p><strong>Inicio:</strong> @Model.FechaInicio.ToShortDateString()</p>
+            <p><strong>Fin:</strong> @Model.FechaFin.ToShortDateString()</p>
+            <p><strong>Descripción:</strong> @Model.Descripcion</p>
+        </div>
+    </div>
+
+    <a href="/Campanas" class="btn btn-secondary mt-3">Volver</a>
+</div>

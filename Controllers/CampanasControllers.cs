@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PortalCampanas.Services;
+using System.Linq;
 
 namespace PortalCampanas.Controllers
 {
@@ -10,6 +11,14 @@ namespace PortalCampanas.Controllers
             var campanas = CampanaService.ObtenerCampanas();
             return View(campanas);
         }
+        public IActionResult Detalle(int id)
+        {
+            var campana = CampanaService.ObtenerCampanas()
+                .FirstOrDefault(c => c.Id == id);
+
+            return View(campana);
+        }
     }
+    
 }
 

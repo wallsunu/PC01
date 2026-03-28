@@ -1,0 +1,33 @@
+@model List<PortalCampanas.Models.Campana>
+
+<h2 class="mt-4">Listado de Campañas</h2>
+
+<table class="table table-striped table-bordered mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+            <th>Canal</th>
+            <th>Descuento</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var c in Model)
+{
+        <tr>
+            <td>@c.Nombre</td>
+            <td>@c.Categoria</td>
+            <td>@c.Estado</td>
+            <td>@c.Canal</td>
+            <td>@c.DescuentoPct %</td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="/Campanas/Detalle/@c.Id">
+                    Ver detalle
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
